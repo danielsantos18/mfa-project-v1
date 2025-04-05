@@ -1,0 +1,22 @@
+<div class="cocktail-container">
+  <h2>Favoritos</h2>
+
+  <div *ngIf="favoriteCocktails().length; else noData" class="cocktail-grid">
+    <div *ngFor="let cocktail of favoriteCocktails()" class="cocktail-card">
+      <img [src]="cocktail.strDrinkThumb" [alt]="cocktail.strDrink">
+      <h3>{{ cocktail.strDrink }}</h3>
+      <p>{{ cocktail.strCategory }}</p>
+      <button (click)="removeFavorite(cocktail.idDrink)" class="favorite-btn">
+        <span>⭐</span>
+      </button>
+      <a [routerLink]="['/mfe-products/products/details', cocktail.idDrink]">
+        Ver detalles
+      </a>
+    </div>
+  </div>
+
+  <ng-template #noData>
+    <p class="no-data-message">No hay cócteles disponibles.</p>
+  </ng-template>
+</div>
+<router-outlet />

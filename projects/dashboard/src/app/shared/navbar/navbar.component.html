@@ -1,0 +1,24 @@
+<nav class="navbar">
+  <div class="container">
+    <a class="navbar-brand" routerLink="dashboard">
+      <img
+        src="https://img.freepik.com/vector-premium/cocteles-logo-inspiracion-bebida-vaso-bar-restaurante_63578-164.jpg"
+        alt="Logo">
+    </a>
+
+    <!-- Botón de menú en móvil -->
+    <button class="menu-toggle" (click)="toggleMenu()">
+      ☰
+    </button>
+
+    <!-- Menú de navegación -->
+    <ul class="nav-links" [class.active]="isMenuOpen">
+      <li><a mfRouterLink="dashboard" (click)="toggleMenu()">Home</a></li>
+      <li><a mfRouterLink="products/list" (click)="toggleMenu()">Products</a></li>
+      <li><a routerLink="mfe-saves/saves" (click)="toggleMenu()">saves</a></li>
+      <li><a routerLink="projects" (click)="toggleMenu()">Projects</a></li>
+      <li><a routerLink="testimonials" (click)="toggleMenu()">Testimonials</a></li>
+      <li><a routerLink="contact" (click)="toggleMenu()">Contact</a></li>
+    </ul>
+  </div>
+</nav>

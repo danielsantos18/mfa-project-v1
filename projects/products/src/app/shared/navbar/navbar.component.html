@@ -1,0 +1,10 @@
+<nav class="navbar">
+  <div class="search-container">
+    <input
+      type="text"
+      [(ngModel)]="searchTerm"
+      (input)="onSearch()"
+      placeholder="Buscar cóctel..." />
+    <button>🔍</button>
+  </div>
+</nav>

@@ -1,0 +1,16 @@
+body {
+  background: #EB5757;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #000000 #EB5757);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #000000 40%, #EB5757 100%);
+  font-family: 'Arial', sans-serif;
+  color: #333;
+}
+
+body {
+  margin-top: 90px; /* Espacio debajo del navbar */
+}
+
+a {
+  cursor: pointer;
+}
+

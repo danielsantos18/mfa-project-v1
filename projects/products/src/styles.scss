@@ -1,0 +1,12 @@
+/* Fondo suave para toda la página */
+body {
+  background: linear-gradient(180deg, #f8f9fa, #e3f2fd); /* Degradado suave */
+  font-family: 'Arial', sans-serif;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  cursor: pointer;
+}

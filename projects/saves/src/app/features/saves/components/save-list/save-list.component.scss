@@ -1,0 +1,91 @@
+/* Contenedor principal */
+.cocktail-container {
+  text-align: center;
+
+  .cocktail-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+  }
+}
+
+h2 {
+  color: white;
+}
+
+// /* Grid de cócteles */
+// .cocktail-grid {
+//   display: grid;
+//   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+//   gap: 20px;
+//   justify-items: center;
+//   margin-top: 20px;
+// }
+
+/* Tarjetas de cócteles */
+.cocktail-card {
+  width: 230px;
+  padding: 15px;
+  border-radius: 12px;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  background: white;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cocktail-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.cocktail-card img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+/* Botón de detalles */
+.cocktail-card a {
+  display: inline-block;
+  margin-top: 10px;
+  text-decoration: none;
+  background: #ff5733;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 5px;
+  transition: background 0.3s;
+}
+
+.cocktail-card a:hover {
+  background: #e0482a;
+}
+
+/* Mensaje cuando no hay cócteles */
+.no-data-message {
+  font-size: 18px;
+  color: #888;
+  margin-top: 20px;
+}
+
+/* Responsivo */
+@media screen and (max-width: 768px) {
+  .cocktail-grid {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  }
+
+  .cocktail-card {
+    width: 180px;
+  }
+}
+
+.favorite-btn {
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+}
+
+.favorite-btn:hover {
+  transform: scale(1.2);
+}

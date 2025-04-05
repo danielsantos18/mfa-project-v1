@@ -1,0 +1,24 @@
+<div *ngIf="cocktail(); else loading" class="cocktail-details">
+  <h2>{{ cocktail()?.strDrink }}</h2>
+  <img [src]="cocktail()?.strDrinkThumb" [alt]="cocktail()?.strDrink">
+
+  <p><strong>Categoría:</strong> {{ cocktail()?.strCategory }}</p>
+  <p><strong>Alcohol:</strong> {{ cocktail()?.strAlcoholic }}</p>
+  <p><strong>Vaso:</strong> {{ cocktail()?.strGlass }}</p>
+
+  <h3>Ingredientes:</h3>
+  <ul>
+    <li *ngFor="let ingredient of getIngredients()">
+      <span>{{ ingredient }}</span>
+    </li>
+  </ul>
+
+  <h3>Instrucciones:</h3>
+  <p>{{ cocktail()?.strInstructions }}</p>
+
+  <a mfRouterLink="/products/list" routerLinkActive="active-link">Volver a la lista</a>
+</div>
+
+<ng-template #loading>
+  <p class="loading">Cargando detalles...</p>
+</ng-template>

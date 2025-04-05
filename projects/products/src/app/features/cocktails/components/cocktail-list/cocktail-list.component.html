@@ -1,0 +1,23 @@
+<div class="cocktail-container">
+  <app-navbar (search)="onSearchCocktail($event)"></app-navbar>
+  <h2>Lista de Cócteles</h2>
+
+  <div *ngIf="cocktails().length; else noData" class="cocktail-grid">
+    <div *ngFor="let cocktail of cocktails()" class="cocktail-card">
+      <img [src]="cocktail.strDrinkThumb" [alt]="cocktail.strDrink">
+      <h3>{{ cocktail.strDrink }}</h3>
+      <p>{{ cocktail.strCategory }}</p>
+        <button (click)="toggleFavorite(cocktail.idDrink)" class="favorite-btn">
+          <span [class.favorited]="isFavorite(cocktail.idDrink)">⭐</span>
+        </button>
+      <a [mfRouterLink]="['products/details/'+cocktail.idDrink]" [routerLinkActive]="['active-link']"
+        [queryParams]="{title: cocktail.strDrink}">
+        Ver detalles
+      </a>
+    </div>
+  </div>
+
+  <ng-template #noData>
+    <p class="no-data-message">No hay cócteles disponibles.</p>
+  </ng-template>
+</div>
