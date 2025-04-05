@@ -1,4 +1,7 @@
 <div class="cocktail-container">
+
+  <app-category-list (categorySelected)="onCategoryChange($event)"></app-category-list>
+
   <app-navbar (search)="onSearchCocktail($event)"></app-navbar>
   <h2>Lista de Cócteles</h2>
 
@@ -7,9 +10,12 @@
       <img [src]="cocktail.strDrinkThumb" [alt]="cocktail.strDrink">
       <h3>{{ cocktail.strDrink }}</h3>
       <p>{{ cocktail.strCategory }}</p>
-        <button (click)="toggleFavorite(cocktail.idDrink)" class="favorite-btn">
-          <span [class.favorited]="isFavorite(cocktail.idDrink)">⭐</span>
-        </button>
+      <button (click)="toggleFavorite(cocktail)" class="favorite-btn">
+        <svg [class.favorited]="isFavorite(cocktail.idDrink)">
+          <path [attr.fill]="isFavorite(cocktail.idDrink) ? '#FFD700' : '#CCCCCC'"
+            d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+        </svg>
+      </button>
       <a [mfRouterLink]="['products/details/'+cocktail.idDrink]" [routerLinkActive]="['active-link']"
         [queryParams]="{title: cocktail.strDrink}">
         Ver detalles

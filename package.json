@@ -11,7 +11,7 @@
   "private": true,
   "dependencies": {
     "@angular-architects/native-federation": "^19.0.16",
-    "@angular/animations": "^19.1.0",
+    "@angular/animations": "^19.2.5",
     "@angular/common": "^19.1.0",
     "@angular/compiler": "^19.1.0",
     "@angular/core": "^19.1.0",
@@ -25,6 +25,7 @@
     "es-module-shims": "^1.5.12",
     "firebase": "^11.5.0",
     "mfa-project-v1": "file:",
+    "ngx-toastr": "^19.0.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.15.0"

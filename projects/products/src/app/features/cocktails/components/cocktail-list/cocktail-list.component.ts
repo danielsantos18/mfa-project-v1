@@ -2,29 +2,49 @@ import { Component, inject, signal } from '@angular/core';
 import { CocktailService } from '../../services/cocktail.service';
 import { CommonModule } from '@angular/common';
 import { NavbarComponent } from '../../../../shared/navbar/navbar.component';
-import { RouterLink } from '@angular/router';
 import { Cocktail } from '../../models/Cocktail.model';
 import { MFRouterLinkDirective } from '../../../../shared/directives/MFRouterLinkDirective';
+import { CategoryListComponent } from '../../../categories/components/category-list/category-list.component';
+import { ToastrModule, ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-cocktail-list',
   standalone: true,
-  imports: [CommonModule, NavbarComponent, MFRouterLinkDirective],
+  imports: [CommonModule, NavbarComponent, MFRouterLinkDirective, CategoryListComponent, ToastrModule],
   templateUrl: './cocktail-list.component.html',
   styleUrls: ['./cocktail-list.component.scss']
 })
 export class CocktailListComponent {
   private cocktailService = inject(CocktailService);
+  private toastr = inject(ToastrService);
+
+  categories: string[] = [];
+  selectedCategory: string = '';
   cocktails = signal<Cocktail[]>([]);
-  favorites = signal<string[]>(this.getFavorites()); // Cargar favoritos al iniciar
+  favorites = signal<string[]>(this.getFavorites());
 
   constructor() {
     this.loadCocktails();
   }
 
   loadCocktails() {
-    this.cocktailService.getCocktailsByLetter('m').subscribe(data => {
-      this.cocktails.set(data);
+    this.cocktailService.getCocktailsByLetter('m').subscribe({
+      next: (data) => this.cocktails.set(data),
+      error: (err) => console.error('Error loading cocktails:', err)
+    });
+  }
+
+  onCategoryChange(category: string) {
+    this.selectedCategory = category;
+
+    if (!category) {
+      this.loadCocktails();
+      return;
+    }
+
+    this.cocktailService.getCocktailsByCategory(category).subscribe({
+      next: (data) => this.cocktails.set(data),
+      error: (err) => console.error('Error filtering by category:', err)
     });
   }
 
@@ -33,31 +53,50 @@ export class CocktailListComponent {
       this.loadCocktails();
       return;
     }
-    this.cocktailService.searchCocktail(term).subscribe(data => {
-      this.cocktails.set(data);
+
+    this.cocktailService.searchCocktail(term).subscribe({
+      next: (data) => this.cocktails.set(data),
+      error: (err) => console.error('Error searching cocktails:', err)
     });
   }
 
-  // Verificar si el cóctel está en favoritos
+  toggleFavorite(cocktail: Cocktail) {
+    const favs = this.getFavorites();
+    const wasFavorite = favs.includes(cocktail.idDrink);
+
+    const updatedFavorites = wasFavorite
+      ? favs.filter(id => id !== cocktail.idDrink)
+      : [...favs, cocktail.idDrink];
+
+    this.saveFavorites(updatedFavorites);
+    this.favorites.set(updatedFavorites);
+
+    // Mostrar notificación
+    if (wasFavorite) {
+      this.toastr.error(`${cocktail.strDrink} removido de favoritos`, 'Favoritos');
+    } else {
+      this.toastr.success(`${cocktail.strDrink} agregado a favoritos`, 'Favoritos');
+    }
+  }
+
   isFavorite(cocktailId: string): boolean {
     return this.favorites().includes(cocktailId);
   }
 
-  // Obtener favoritos desde localStorage
-  getFavorites(): string[] {
-    return JSON.parse(localStorage.getItem('favorites') || '[]');
+  private getFavorites(): string[] {
+    try {
+      return JSON.parse(localStorage.getItem('favorites') || '[]');
+    } catch (e) {
+      console.error('Error reading favorites:', e);
+      return [];
+    }
   }
 
-  toggleFavorite(cocktailId: string) {
-    let favs = this.getFavorites();
-
-    if (favs.includes(cocktailId)) {
-      favs = favs.filter(id => id !== cocktailId); // Eliminar de favoritos
-    } else {
-      favs.push(cocktailId); // Agregar a favoritos
+  private saveFavorites(favorites: string[]): void {
+    try {
+      localStorage.setItem('favorites', JSON.stringify(favorites));
+    } catch (e) {
+      console.error('Error saving favorites:', e);
     }
-
-    localStorage.setItem('favorites', JSON.stringify(favs));
-    this.favorites.set(favs); // Actualizar el estado
   }
 }

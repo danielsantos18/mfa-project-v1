@@ -40,4 +40,11 @@ export class CocktailService {
     return this.http.get<{ drinks: Cocktail[] }>(`${this.API_URL}/random.php`)
       .pipe(map(response => response.drinks ? response.drinks[0] : null));
   }
+
+  // Obtener cócteles filtrados por categoría
+  getCocktailsByCategory(category: string): Observable<Cocktail[]> {
+    return this.http.get<{ drinks: Cocktail[] }>(`${this.API_URL}/filter.php?c=${encodeURIComponent(category)}`)
+      .pipe(map(response => response.drinks || []));
+  }
+
 }

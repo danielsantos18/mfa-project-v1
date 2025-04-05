@@ -3,6 +3,7 @@ import { Component, inject, OnInit, signal } from '@angular/core';
 import { CocktailService } from '../../../../../../../products/src/app/features/cocktails/services/cocktail.service';
 import { CommonModule } from '@angular/common';
 import { RouterLink, RouterOutlet } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-save-list',
@@ -12,7 +13,8 @@ import { RouterLink, RouterOutlet } from '@angular/router';
 })
 export class SaveListComponent implements OnInit {
   private cocktailService = inject(CocktailService);
-  favoriteCocktails = signal<Cocktail[]>([]); // Lista de cócteles favoritos
+  private toastService = inject(ToastrService);
+  favoriteCocktails = signal<Cocktail[]>([]);
 
   ngOnInit() {
     this.loadFavorites();
@@ -20,16 +22,14 @@ export class SaveListComponent implements OnInit {
 
   loadFavorites() {
     const storedIds: string[] = JSON.parse(localStorage.getItem('favorites') || '[]');
-
     if (storedIds.length === 0) return;
-
     const cocktailsList: Cocktail[] = [];
 
     storedIds.forEach(id => {
       this.cocktailService.getCocktailById(id).subscribe(response => {
         if (response) {
           cocktailsList.push(response);
-          this.favoriteCocktails.set([...cocktailsList]); // Actualiza el estado reactivo
+          this.favoriteCocktails.set([...cocktailsList]);
         }
       });
     });
@@ -40,7 +40,7 @@ export class SaveListComponent implements OnInit {
     storedIds = storedIds.filter((id: string) => id !== cocktailId);
 
     localStorage.setItem('favorites', JSON.stringify(storedIds));
-    this.loadFavorites(); // Recargar la lista
+    this.toastService.info(`removido de favoritos`, 'Favoritos');
+    this.loadFavorites();
   }
-
 }

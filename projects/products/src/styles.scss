@@ -1,6 +1,8 @@
-/* Fondo suave para toda la página */
+@import 'ngx-toastr/toastr';
+
 body {
-  background: linear-gradient(180deg, #f8f9fa, #e3f2fd); /* Degradado suave */
+  background: linear-gradient(180deg, #f8f9fa, #e3f2fd);
+  /* Degradado suave */
   font-family: 'Arial', sans-serif;
   color: #333;
   margin: 0;
