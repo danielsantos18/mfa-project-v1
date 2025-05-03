@@ -5,7 +5,7 @@ module.exports = withNativeFederation({
   name: 'products',
 
   exposes: {
-    './Routes': './projects/products/src/app/app.routes.ts', // Exponer rutas
+    './Routes': './projects/products/src/app/app.routes.ts',
     'CocktailList': './projects/products/src/app/features/cocktails/components/cocktail-list/cocktail-list.component.ts'
   },
 

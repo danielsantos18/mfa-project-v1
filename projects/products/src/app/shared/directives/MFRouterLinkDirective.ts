@@ -12,10 +12,7 @@ export class MFRouterLinkDirective implements OnInit {
   readonly queryParams = input<any>();
 
   private mfNavigateService = inject(MFNavigateService)
-
   private elementRef = inject(ElementRef)
-
-  //private router = inject(Router)
 
   ngOnInit(): void {
     this.suscribeNavigation();
@@ -29,7 +26,6 @@ export class MFRouterLinkDirective implements OnInit {
     console.log(this.mfRouterLink())
     console.log(this.queryParams())
 
-    //this.router.navigate([this.mfRouterLink()],{ queryParams: this.queryParams()})
     this.mfNavigateService.navigate(this.mfRouterLink(), { queryParams: this.queryParams() });
   }
 
@@ -44,9 +40,7 @@ export class MFRouterLinkDirective implements OnInit {
       if (window.location.pathname === this.mfRouterLink()) {
         this.elementRef.nativeElement.classList.add(this.routerLinkActive());
       } else {
-        //if(this.routerLinkActive()){
         this.elementRef.nativeElement.classList.remove(this.routerLinkActive());
-        //}
       }
     }
   }

@@ -18,7 +18,7 @@ export const PRODUCTS_ROUTES: Routes = [
   },
   {
     path: "",
-    redirectTo: "products",
+    redirectTo: "products/list",
     pathMatch: "full"
   }
 ];

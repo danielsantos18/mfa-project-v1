@@ -1,145 +1,316 @@
 /* Contenedor principal */
 .container {
   max-width: 1200px;
-  margin: 40px auto;
+  margin: 0 auto;
   padding: 20px;
+}
+
+h2,
+p {
+  color: white;
 }
 
 /* Banner principal */
 .banner {
   text-align: center;
-  background: url('https://www.infobae.com/resizer/v2/XSZIDIZ4TJC3PLM7ZB5GMG6MS4.jpg?auth=bfb248831c0332b974c5f41c60df7014c11d2098e9031fa55d0337da119c7bd0&smart=true&width=1200&height=800&quality=85')
-              no-repeat center center;
-  background-size: cover; /* Ajusta la imagen al tamaño del banner */
+  background-size: cover;
+  /* Ajusta la imagen al tamaño del banner */
+  background: url('https://www.infobae.com/resizer/v2/XSZIDIZ4TJC3PLM7ZB5GMG6MS4.jpg?auth=bfb248831c0332b974c5f41c60df7014c11d2098e9031fa55d0337da119c7bd0&smart=true&width=1200&height=800&quality=85') no-repeat center center;
   color: white;
-  padding: 80px 20px; /* Espaciado interno */
+  padding: 80px 20px;
+  /* Espaciado interno */
   border-radius: 10px;
   margin-bottom: 20px;
   position: relative;
 }
 
-/* Para mejorar la legibilidad, agrega una capa de oscurecimiento */
-.banner::before {
-  content: "";
+.banner-image {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.5); /* Oscurece la imagen para que el texto sea más visible */
-  border-radius: 10px;
 }
 
-/* Asegurar que el contenido esté por encima de la capa oscura */
-.banner h1,
-.banner p {
+.banner-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.banner-content {
   position: relative;
-  z-index: 1;
-  margin-bottom: 25px;
+  z-index: 2;
+  padding: 40px 20px;
+  color: white;
+  text-align: center;
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.7));
 }
 
-.btn-primary {
-  background-color: white;
-  color: #ff5733;
+.banner-actions {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+/* Botones */
+.btn-primary,
+.btn-secondary,
+.btn-small {
+  display: inline-block;
   padding: 10px 20px;
   border-radius: 5px;
   text-decoration: none;
   font-weight: bold;
-  z-index: 1;
-  position: relative;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.btn-primary {
+  background-color: #ff5733;
+  color: white;
 }
 
 .btn-primary:hover {
-  background-color: #f1f1f1;
-  z-index: 1;
+  background-color: #e04d26;
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: white;
+  border: 2px solid white;
+}
+
+.btn-secondary:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.btn-small {
+  padding: 6px 12px;
+  font-size: 0.8rem;
 }
 
 /* Contenido principal */
 .content {
   display: flex;
-  gap: 20px;
+  gap: 30px;
+  margin-bottom: 40px;
 }
 
-/* Contenedor del contenido central */
 .main-content {
   flex: 3;
-  background: white;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.main-content h2 {
-  color: #333;
-  margin-bottom: 15px;
-}
-
-.main-content ul {
-  list-style-type: disc;
-  padding-left: 20px;
-}
-
-/* Sección lateral */
 .sidebar {
   flex: 1;
-  background: #f8f9fa;
-  padding: 15px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.sidebar h3 {
-  margin-bottom: 10px;
-}
-
-.sidebar p {
-  font-size: 0.9rem;
-  margin-bottom: 10px;
-}
-
-.btn-secondary {
-  display: inline-block;
-  background-color: #ff5733;
-  color: white;
-  padding: 8px 15px;
-  border-radius: 5px;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-.btn-secondary:hover {
-  background-color: #e04d26;
-}
-
-/* Estilos para la sección de cócteles */
-.cocktail-grid {
+/* Tarjetas de características */
+.features-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 20px;
+  margin: 30px 0;
+}
+
+.feature-card {
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+}
+
+.feature-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.feature-card h3 {
+  padding: 15px 15px 0;
+  color: #333;
+}
+
+.feature-card p {
+  padding: 0 15px 15px;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+/* Sección de historia */
+.history-section {
+  margin: 40px 0;
+}
+
+.history-content {
+  display: flex;
+  gap: 20px;
+  align-items: center;
   margin-top: 20px;
 }
 
-.cocktail-card {
-  background: #fff;
-  padding: 15px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  text-align: center;
+.history-image {
+  flex: 1;
+  min-width: 300px;
 }
 
-.cocktail-card img {
+.history-image img {
   width: 100%;
   border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
+.history-content div {
+  flex: 2;
+}
+
+/* Tendencias */
+.trends-section {
+  margin: 40px 0;
+}
+
+.trends-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.trend-card {
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.trend-card img {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+}
+
+.trend-card h3 {
+  font-size: 1rem;
+  padding: 10px;
+  margin: 0;
+}
+
+.trend-card p {
+  font-size: 0.8rem;
+  padding: 0 10px 10px;
+  margin: 0;
+  color: #666;
+}
+
+/* Sección de temporada */
+.seasonal-section {
+  margin: 40px 0;
+}
+
+.seasonal-content {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  background: #f8f9fa;
+  padding: 20px;
+  border-radius: 10px;
+  margin-top: 20px;
+}
+
+.seasonal-content img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.seasonal-content div {
+  flex: 1;
+}
+
+.seasonal-content ul {
+  margin: 15px 0;
+  padding-left: 20px;
+}
+
+/* Sidebar */
+.sidebar-card {
+  background: white;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar-card img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 5px;
+  margin: 10px 0;
+}
+
+.sidebar-card h3 {
+  color: #333;
+  margin-top: 0;
+}
+
+.sidebar-card ul {
+  padding-left: 20px;
+  font-size: 0.9rem;
+}
+
+.sidebar-card li {
+  margin-bottom: 8px;
+}
 
 /* Responsivo */
 @media (max-width: 768px) {
   .content {
-      flex-direction: column;
+    flex-direction: column;
   }
 
-  .sidebar {
-      margin-top: 20px;
+  .history-content,
+  .seasonal-content {
+    flex-direction: column;
+  }
+
+  .history-image,
+  .seasonal-content img {
+    min-width: 100%;
+  }
+
+  .banner-actions {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+
+  .features-grid,
+  .trends-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .banner-content {
+    padding: 30px 15px;
+  }
+
+  .container {
+    padding: 10px;
   }
 }

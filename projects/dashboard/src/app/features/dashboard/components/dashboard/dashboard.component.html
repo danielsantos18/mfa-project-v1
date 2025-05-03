@@ -1,63 +1,144 @@
-<!-- Sección Principal -->
 <main class="container">
-  <!-- Banner de Bienvenida -->
   <header class="banner">
-    <h1>Bienvenido a Cocktail Explorer 🍹</h1>
-    <p>Explora una selección de cócteles de todo el mundo, descubre sus ingredientes y aprende a prepararlos.</p>
-    <a mfRouterLink="products/list" class="btn-primary">Explorar Cócteles</a>
+    <div class="banner-content">
+      <h1>Bienvenido a Cocktail Explorer 🍹</h1>
+      <p>Explora una selección de cócteles y bebidas de todo el mundo, descubre sus ingredientes y aprende a prepararlos.</p>
+      <div class="banner-actions">
+        <a mfRouterLink="products/list" class="btn-primary">Explorar Bebidas</a>
+        <a mfRouterLink="trends" class="btn-secondary">Ver Tendencias</a>
+      </div>
+    </div>
   </header>
 
-  <!-- Sección de contenido principal -->
   <section class="content">
-    <!-- Contenedor del contenido central -->
     <div class="main-content">
-      <h2>¿Qué puedes hacer aquí?</h2>
-      <ul>
-        <li>Explorar una amplia selección de cócteles de diferentes países.</li>
-        <li>Ver ingredientes y preparaciones detalladas.</li>
-        <li>Aprender sobre la historia de cada cóctel.</li>
-        <li>Guardar tus favoritos para futuras referencias.</li>
-        <li>Descubrir los cócteles más populares de cada continente.</li>
-      </ul>
+      <section class="feature-box">
+        <h2>¿Qué puedes hacer aquí?</h2>
+        <div class="features-grid">
+          <div class="feature-card">
+            <img
+              src="https://images.unsplash.com/photo-1551751299-1b51cab2694c?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
+              alt="Explorar cócteles">
+            <h3>Explorar</h3>
+            <p>Descubre cócteles de diferentes países con detalles completos.</p>
+          </div>
+          <div class="feature-card">
+            <img
+              src="https://imag.bonviveur.com/mezclar-ingredientes-para-la-macedonia-paso-1.webp"
+              alt="Ingredientes">
+            <h3>Ingredientes</h3>
+            <p>Listas completas de ingredientes y preparaciones paso a paso.</p>
+          </div>
+          <div class="feature-card">
+            <img
+              src="https://images.unsplash.com/photo-1514361892635-6b07e31e75f9?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
+              alt="Favoritos">
+            <h3>Favoritos</h3>
+            <p>Guarda tus recetas preferidas para acceder fácilmente.</p>
+          </div>
+        </div>
+      </section>
 
-      <h2>Historia de los Cócteles 🍸</h2>
-      <p>Los cócteles han evolucionado a lo largo de los siglos, desde mezclas rudimentarias hasta sofisticadas
-        combinaciones de sabores.</p>
-      <p>El término "cocktail" se usó por primera vez en 1806 en Nueva York, refiriéndose a una bebida alcohólica
-        mezclada con azúcar, agua y bitters.</p>
-      <p>Hoy en día, los cócteles son una expresión artística de la mixología y han conquistado el mundo con sus
-        diversas recetas.</p>1
+      <section class="history-section">
+        <h2>Historia de los Cócteles 🍸</h2>
+        <div class="history-content">
+          <img
+            src="https://images.unsplash.com/photo-1516684732162-798a0062be99?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
+            alt="Historia cócteles" class="history-image">
+          <div>
+            <p>Los cócteles han evolucionado a lo largo de los siglos, desde mezclas rudimentarias hasta sofisticadas
+              combinaciones de sabores.</p>
+            <p>El término "cocktail" se usó por primera vez en 1806 en Nueva York, refiriéndose a una bebida alcohólica
+              mezclada con azúcar, agua y bitters.</p>
+            <p>Hoy en día, los cócteles son una expresión artística de la mixología y han conquistado el mundo con sus
+              diversas recetas.</p>
+          </div>
+        </div>
+      </section>
 
-      <h2>Tendencias en Mixología 🚀</h2>
-      <ul>
-        <li><strong>Cócteles sin alcohol (Mocktails):</strong> Alternativas sofisticadas para quienes prefieren opciones
-          sin alcohol.</li>
-        <li><strong>Uso de ingredientes naturales:</strong> Se priorizan frutas frescas, hierbas y licores artesanales.
-        </li>
-        <li><strong>Cócteles moleculares:</strong> Técnicas avanzadas como esferificación y espumas para sorprender a
-          los paladares.</li>
-        <li><strong>Experiencia personalizada:</strong> Los bares ofrecen cócteles diseñados según los gustos del
-          cliente.</li>
-      </ul>
+      <section class="trends-section">
+        <h2>Tendencias en Mixología 2025 🚀</h2>
+        <div class="trends-grid">
+          <div class="trend-card">
+            <img
+              src="https://images.unsplash.com/photo-1551751299-1b51cab2694c?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
+              alt="Mocktails">
+            <h3>Mocktails</h3>
+            <p>Alternativas sofisticadas sin alcohol que ganan popularidad.</p>
+          </div>
+          <div class="trend-card">
+            <img
+              src="https://images.unsplash.com/photo-1600788886242-5c96aabe3757?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
+              alt="Ingredientes naturales">
+            <h3>Ingredientes Naturales</h3>
+            <p>Frutas frescas, hierbas y licores artesanales en primer plano.</p>
+          </div>
+          <div class="trend-card">
+            <img
+              src="https://images.unsplash.com/photo-1551269901-5c5e14c25df7?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
+              alt="Mixología molecular">
+            <h3>Mixología Molecular</h3>
+            <p>Técnicas avanzadas para crear experiencias sensoriales únicas.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="seasonal-section">
+        <h2>Cócteles de Temporada 🌸</h2>
+        <div class="seasonal-content">
+          <img
+            src="https://images.unsplash.com/photo-1470337458703-46ad1756a187?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
+            alt="Cócteles de temporada">
+          <div>
+            <h3>Primavera 2025</h3>
+            <ul>
+              <li>Gin Tonic con flor de saúco y pepino</li>
+              <li>Margarita de fresa y albahaca</li>
+              <li>Spritz de flor de cerezo</li>
+              <li>Mojito de mango y jengibre</li>
+            </ul>
+          </div>
+        </div>
+      </section>
     </div>
 
-    <!-- Sección lateral con información extra -->
     <aside class="sidebar">
-      <h3>Información destacada 📌</h3>
-      <p>¿Sabías que el cóctel más antiguo registrado es el "Old Fashioned", creado en 1806?</p>
-      <p>Explora nuestra lista de cócteles y descubre más datos curiosos.</p>
+      <div class="sidebar-card">
+        <h3>Información destacada 📌</h3>
+        <img
+          src="https://images.unsplash.com/photo-1514361892635-6b07e31e75f9?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
+          alt="Old Fashioned">
+        <strong>¿Sabías que el cóctel más antiguo registrado es el "Old Fashioned", creado en 1806?</strong>
+        <p>Explora nuestra lista de cócteles y descubre más datos curiosos.</p>
+      </div>
 
-      <h3>🌎 Los Cócteles Más Populares por Continente</h3>
-      <ul>
-        <li><strong>América:</strong> Margarita (México), Pisco Sour (Perú), Caipirinha (Brasil)</li>
-        <li><strong>Europa:</strong> Negroni (Italia), Aperol Spritz (Italia), Gin Tonic (Reino Unido)</li>
-        <li><strong>Asia:</strong> Sake Bomb (Japón), Singapore Sling (Singapur)</li>
-        <li><strong>África:</strong> Dawa (Kenia), Rooibos Martini (Sudáfrica)</li>
-        <li><strong>Oceanía:</strong> Jungle Bird (Malasia), Espresso Martini (Australia)</li>
-      </ul>
+      <div class="sidebar-card">
+        <h3>🌎 Los Cócteles Más Populares por Continente</h3>
+        <img
+          src="https://images.unsplash.com/photo-1536935338788-846bb9981813?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
+          alt="Cócteles del mundo">
+        <ul>
+          <li><strong>América:</strong> Margarita (México), Pisco Sour (Perú), Caipirinha (Brasil)</li>
+          <li><strong>Europa:</strong> Negroni (Italia), Aperol Spritz (Italia), Gin Tonic (Reino Unido)</li>
+          <li><strong>Asia:</strong> Sake Bomb (Japón), Singapore Sling (Singapur)</li>
+          <li><strong>África:</strong> Dawa (Kenia), Rooibos Martini (Sudáfrica)</li>
+          <li><strong>Oceanía:</strong> Jungle Bird (Malasia), Espresso Martini (Australia)</li>
+        </ul>
+      </div>
+
+      <div class="sidebar-card">
+        <h3>📅 Eventos de Mixología</h3>
+        <img
+          src="https://images.unsplash.com/photo-1551024506-0bccd828d307?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
+          alt="Eventos">
+        <ul>
+          <li><strong>15 Mayo:</strong> Taller de cócteles tropicales</li>
+          <li><strong>22 Junio:</strong> Competición de mixología local</li>
+          <li><strong>10 Julio:</strong> Clase magistral de gin tonics</li>
+        </ul>
+      </div>
     </aside>
   </section>
 </main>
-<!-- Espacio para cargar microfrontends dinámicamente -->
 <app-footer></app-footer>
 <router-outlet></router-outlet>
